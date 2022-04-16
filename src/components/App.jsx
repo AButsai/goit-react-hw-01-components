@@ -1,17 +1,25 @@
-export const App = () => {
+import PropTypes from 'prop-types';
+
+import Profile from './Profile/Profile';
+
+import user from './file/user.json';
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        textTransform: 'uppercase',
-        color: '#010101',
-      }}
-    >
-      React homework template
+    <div>
+      <Profile
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
+      />
     </div>
   );
 };
+
+App.propTypes = {
+  title: PropTypes.string,
+};
+
+export default App;
