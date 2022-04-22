@@ -12,25 +12,18 @@ const Statistics = props => {
       {title && <h2 className={s.title}>{title}</h2>}
 
       <ul className={s.statList}>
-        {stats
-          .reduce((acc, stat) => {
-            if (!acc.filter(obj => stat.label === obj.label)[0]) {
-              acc.push(stat);
-            }
-            return acc;
-          }, [])
-          .map(({ id, label, percentage }) => {
-            return (
-              <li
-                className={s.item}
-                key={id}
-                style={{ backgroundColor: getRandomHexColor() }}
-              >
-                <span className={s.label}>{label}</span>
-                <span className={s.percentage}>{percentage}%</span>
-              </li>
-            );
-          })}
+        {stats.map(({ id, label, percentage }) => {
+          return (
+            <li
+              className={s.item}
+              key={id}
+              style={{ backgroundColor: getRandomHexColor() }}
+            >
+              <span className={s.label}>{label}</span>
+              <span className={s.percentage}>{percentage}%</span>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
